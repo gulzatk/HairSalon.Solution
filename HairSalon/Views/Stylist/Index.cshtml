@@ -5,12 +5,13 @@
 <div class="container text-center">
 
   <h1>List of Stylists in our HairSalon:</h1>
+  <hr/>
 
   @if (@Model.Count == 0)
   {
     <h3>No stylists exist!</h3>
   }
-
+<ul>
   @foreach (var stylist in Model)
   {
     <h3><a href='/stylists/@stylist.GetId()'>@stylist.GetName()</a></h3>
@@ -18,6 +19,7 @@
     <button class="btn btn-info"><a href='/stylists/@stylist.GetId()/edit'>Edit</a></button>
     <br>
   }
+  </ul>
   <br>
   <p><a href='/stylists/new'>Add a new stylist</a></p><br>
   <p><a href='/'>Home Page</a></p>

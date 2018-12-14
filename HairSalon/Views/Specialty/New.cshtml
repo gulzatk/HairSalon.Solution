@@ -1,0 +1,18 @@
+@{
+  Layout = "_Layout";
+}
+
+<div class="container">
+
+<h1>Add a new Specialty</h1>
+
+<form action="/stylists/@Model.GetId()/specialties" method="post">
+  <label for="specialtyName">Specialty name</label>
+  <input id="specialtyName" name="specialtyName" type="text">
+
+  <button type="submit" class="btn  btn-info">Add a new specialty</button>
+</form>
+
+<p><a href="/">Home Page</a></p>
+<p><a href="/specialtys">Specialty List.</a></p>
+</div>
