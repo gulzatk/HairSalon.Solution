@@ -5,11 +5,11 @@ Layout = "_Layout";
 <div class="container">
 <h1>Stylist Details</h1>
     <h3>Name: @Model["stylist"].GetName()</h3>
-    <h3>Description: @Model["stylist"].GetDescription()</h3>
 
 <h3>Stylist "@Model["stylist"].GetName()" all specialties:</h3>
-@if (@Model["specialties"].Count !=0)
+@if (@Model["specialties"].Count == 0)
 {
+<p>No specialties added for this stylist, yet.</p>
 <ul>
 @foreach (var specialty in @Model["specialties"])
 {
@@ -17,7 +17,8 @@ Layout = "_Layout";
 }
 </ul>
 }
-<h4>Add a specialty to this stylist: </h4>
+
+<h4>Add a specialty to this stylist from the list: </h4>
 <form action='/stylists/Model["stylist"].GetId()/specialties/new' method='post'>
 <label for='speciltyId'> Select a specialty</label>
 <select id='specialtyId' name='specialtyId' type='text'>
@@ -26,26 +27,10 @@ Layout = "_Layout";
   <option value='@specialty.GetId()'>@specialty.GetName()</option>
   }
   </select>
-  <button type='submit' btn btn-info>Add</button>
+  <button type='submit' class=" btn btn-info">Add</button>
   </form>
 
-  <h3>Here are all the client who comes to see "@Model["stylist"].GetName()":</h3>
-  @if (@Model["clients"].Count == 0)
-  {
-  <p>No one have been added into this stylist client list, yet!</p>
-  }
-
-  <ol>
-    @foreach (var client in @Model["clients"])
-    {
-      <li>@client.GetClientName()
-        <p><a href='/stylists/@Model["stylist"].GetId()/clients/@client.GetId()/delete'>Delete This Client</a></p>
-      </li>
-    }
-  </ol>
-
-  <p><a href='/stylists/@Model["stylist"].GetId()/clients/new'>Add a new client</a></p><br>
-
+  <p><a href='/stylists/Model["stylist"].GetId/showclients'>See all @Model["stylist"].GetName()'s clients: </a></p>
   <p><a href='/stylists'>Stylists list</a></p><br>
   <p><a href='/'>Home Page</a></p>
 </div>

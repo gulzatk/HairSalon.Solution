@@ -36,6 +36,11 @@ input
   color: black;
 }
 
+label
+{
+  color: black;
+}
+
 img
 {
 border-radius: 50%;

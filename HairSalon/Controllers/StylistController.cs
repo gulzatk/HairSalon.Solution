@@ -36,13 +36,24 @@ namespace HairSalon.Controllers
         Stylist selectedStylist = Stylist.Find(id);
         List<Client> stylistClients = selectedStylist.GetClients();
         List<Client> allClients = Client.GetAll();
-        List<Specialty> stylistSpecialty = selectedStylist.GetSpecialty();
+        List<Specialty> stylistSpecialty = selectedStylist.GetSpecialties();
         List<Specialty> allSpecialties = Specialty.GetAll();
         model.Add("stylist", selectedStylist);
         model.Add("clients", stylistClients);
         model.Add("specialties", stylistSpecialty);
-        model.Add("allClients", allClients);
         model.Add("allSpecialties", allSpecialties);
+        return View(model);
+      }
+
+      [HttpGet("/stylists/{id}/showclients")]
+      public ActionResult ShowClients(int id)
+      {
+        Dictionary<string, object> model = new Dictionary<string, object>();
+        Stylist selectedStylist = Stylist.Find(id);
+        List<Client> stylistClients = selectedStylist.GetClients();
+        List<Client> allClients = Client.GetAll();
+        model.Add("stylist", selectedStylist);
+        model.Add("clients", stylistClients);
         return View(model);
       }
 
@@ -83,7 +94,7 @@ namespace HairSalon.Controllers
         List<Client> stylistClients = foundStylist.GetClients();
         model.Add("clients", stylistClients);
         model.Add("stylist", foundStylist);
-        return View("Show", model);
+        return View("ShowClients", model);
       }
 
       [HttpGet("/stylists/{stylistId}/clients/{clientId}/delete")]
@@ -96,7 +107,7 @@ namespace HairSalon.Controllers
          List<Client> stylistClients = stylist.GetClients();
          model.Add("stylist", stylist);
          model.Add("clients", stylistClients);
-         return View("Show", model);
+         return View("ShowClients", model);
        }
 
        [HttpGet("stylists/{id}/edit")]
@@ -121,7 +132,7 @@ namespace HairSalon.Controllers
           Stylist stylist = Stylist.Find(stylistId);
           Specialty specialty = Specialty.Find(speciltyId);
           stylist.AddSpecialty(specialty);
-          return RedirectToAction("Show", new {id = stylistId});  
+          return RedirectToAction("Show", stylistId);
         }
     }
 }
