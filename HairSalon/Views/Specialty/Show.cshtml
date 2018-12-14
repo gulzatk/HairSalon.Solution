@@ -1,5 +1,8 @@
-@using HairSalon.Models;
+@{
+Layout = "_Layout";
+}
 
+<div class ="controller">
 <h1>Specialties</h1>
 <h2> @Model["selectedSpecialty"].GetName()</h2>
 
@@ -9,7 +12,7 @@
 {
   <h4>List of stylists with this specialty:</h4>
   <ul>
-    @foreach (Stylist stylist in @Model["specialtyStylist"])
+    @foreach (var stylist in @Model["specialtyStylist"])
     {
       <li>@stylist.GetName()</li>
     }
