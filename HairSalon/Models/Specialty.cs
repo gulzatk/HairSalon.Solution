@@ -25,6 +25,11 @@ namespace HairSalon.Models
           return _id;
         }
 
+        public void SetId(int newId)
+        {
+          _id = newId;
+        }
+
         public void Save()
         {
            MySqlConnection conn = DB.Connection();
@@ -100,7 +105,7 @@ namespace HairSalon.Models
             conn.Open();
             var cmd = conn.CreateCommand() as MySqlCommand;
             cmd.CommandText = @"SELECT * FROM specialties WHERE id = (@searchId);";
-            cmd.Parameters.AddWithValue("@searchId", id)
+            cmd.Parameters.AddWithValue("@searchId", id);
             var rdr = cmd.ExecuteReader() as MySqlDataReader;
             int specialtyId = 0;
             string specialtyName = "";
@@ -150,3 +155,5 @@ namespace HairSalon.Models
             {
                 return this.GetName().GetHashCode();
             }
+          }
+        }

@@ -1,0 +1,14 @@
+@{
+  Layout = "_Layout";
+}
+
+<div class="container text-center">
+  <h1>Client: </h1>
+
+  <h2>@Model["clients"].GetClientName()</h2>
+  <h3>Stylist: @Model["stylist"].GetName()</h3>
+
+  <a href='/stylists/@Model["stylist"].GetId()/clients/@Model["clients"].GetId()/edit'>Edit this Client info</a><br>
+  <a href='/stylists/@Model["stylist"].GetId()/clients/new'>Add another client</a><br>
+  <a href='/stylists'>View all stylists</a>
+  </div>
