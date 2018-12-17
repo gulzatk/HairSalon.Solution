@@ -61,7 +61,7 @@ namespace HairSalon.Tests
    public void GetId_ReturnStylistId_Int()
    {
      //Arrange
-      string name = "Test Category";
+      string name = "Test Stylist";
       string description = "cut";
       int id = 4;
       Stylist newStylist = new Stylist(name, description, id);
@@ -150,18 +150,18 @@ namespace HairSalon.Tests
       }
 
       [TestMethod]
-     public void GetClient_ReturnsEmptyList_AfterDelete()
+     public void GetClient_ReturnStylistClient_ListOfClient()
      {
        //Arrange
-       string name = "gulzat";
-       int stylistId = 3;
-       Client newClient = new Client(name, stylistId);
+       Stylist newStylist = new Stylist("gulzat", "cut");
+       newStylist.Save();
+
+       Client newClient = new Client("gulzat", newStylist.GetId());
        newClient.Save();
-       Client.DeleteClient(newClient.GetId());
 
        //Act
-       List<Client> result = Client.GetAll();
-       List<Client> newList = new List<Client> {};
+       List<Client> result = newStylist.GetClients();
+       List<Client> newList = new List<Client> {newClient};
 
        //Assert
        CollectionAssert.AreEqual(newList, result);
@@ -198,5 +198,47 @@ namespace HairSalon.Tests
          //Assert
          Assert.AreEqual(testId, result);
        }
+
+       [TestMethod]
+        public void Test_AddSpecialty_AddsSpecialtyToStylist()
+        {
+          //Arrange
+          Stylist testStylist = new Stylist("Gulzat", "cuts");
+          testStylist.Save();
+          Specialty testSpecialty = new Specialty("kids cut");
+          testSpecialty.Save();
+          Specialty testSpecialty2 = new Specialty("coloring");
+          testSpecialty2.Save();
+
+          //Act
+          testStylist.AddSpecialty(testSpecialty);
+          testStylist.AddSpecialty(testSpecialty2);
+          List<Specialty> result = testStylist.GetSpecialties();
+          List<Specialty> testList = new List<Specialty>{testSpecialty, testSpecialty2};
+
+          //Assert
+          CollectionAssert.AreEqual(testList, result);
+        }
+
+        [TestMethod]
+        public void GetSpecialty_ReturnsAllStylistSpecialty_SpecialtyList()
+        {
+          //Arrange
+          Stylist testStylist = new Stylist("gulzat", "cuts");
+          testStylist.Save();
+          Specialty testSpecialty1 = new Specialty("color");
+          testSpecialty1.Save();
+          Specialty testSpecialty2 = new Specialty("cut");
+          testSpecialty2.Save();
+
+          //Act
+          testStylist.AddSpecialty(testSpecialty1);
+          List<Specialty> savedSpecialty = testStylist.GetSpecialties();
+          List<Specialty> testList = new List<Specialty> {testSpecialty1};
+
+          //Assert
+          CollectionAssert.AreEqual(testList, savedSpecialty);
+        }
+
   }
 }

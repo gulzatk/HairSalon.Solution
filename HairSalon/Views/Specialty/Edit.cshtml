@@ -1,0 +1,17 @@
+@{
+  Layout = "_Layout";
+}
+
+<h2 class="text-center">Edit Specialty</h2>
+<div class="container">
+
+
+    <form action="/specialties/@Model.GetId()/edit" method="post">
+        <label for="name"> Name: </label>
+        <input type="text" name="name"><br>
+
+        <button type="submit" class="btn btn-primary">Edit</button>
+    </form>
+<h3><a href = "/specialties">Return to stylists List</a></h3>
+
+</div>

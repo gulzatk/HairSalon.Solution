@@ -8,7 +8,8 @@ Layout = "_Layout";
 @if (@Model["clients"].Count == 0)
 {
 <p>No one have been added into this stylist client list, yet!</p>
-}
+} else
+{
 
 <ol>
   @foreach (var client in @Model["clients"])
@@ -18,8 +19,9 @@ Layout = "_Layout";
     </li>
   }
 </ol>
+}
 
-<p><a href='/stylists/@Model["stylist"].GetId()/clients/new'>Add a new client</a></p><br>
-<p><a href='/stylists'>Stylists list</a></p><br>
+<p><a href='/stylists/@Model["stylist"].GetId()/clients/new'>Add a new client</a></p>
+<p><a href='/stylists'>Stylists list</a></p>
 <p><a href='/'>Home Page</a></p>
 </div>

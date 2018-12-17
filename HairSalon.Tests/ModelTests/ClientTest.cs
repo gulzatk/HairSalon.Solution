@@ -55,29 +55,31 @@ namespace HairSalon.Tests
      public void GetAll_ReturnsAllClientObjects_ClientList()
      {
        // Arrange
-       string name = "gulzat";
-       int stylistId = 2;
-       string name2 = "jibek";
-       int stylistId2 = 1;
 
-       Client newClient = new Client(name, stylistId);
+       Stylist newStylist = new Stylist("Emma", "cut");
+       newStylist.Save();
+       int stylistId = newStylist.GetId();
+       Client newClient = new Client("gulzat", stylistId);
        newClient.Save();
-       Client newClient2 = new Client(name2, stylistId2);
+       Client newClient2 = new Client("jibek", stylistId);
        newClient2.Save();
-       List<Client> expected = new List<Client>();
-       expected.Add(newClient);
-       expected.Add(newClient2);
+
+
        // Act
-       List<Client> result = Client.GetAll();
+      List<Client> clients = new List<Client>{newClient, newClient2};
+       List<Client> newList = Client.GetAll();
        // Assert
-       CollectionAssert.AreEqual(expected, result);
+       CollectionAssert.AreEqual(clients, newList);
      }
 
      [TestMethod]
      public void Save_SavesClientToDatabase_ClientList()
      {
        //Arrange
-       Client testClient = new Client("jibek", 2);
+       Stylist newStylist = new Stylist("Emma", "cut");
+       newStylist.Save();
+       int stylistId = newStylist.GetId();
+       Client testClient = new Client("jibek", stylistId);
 
        //Act
        testClient.Save();
@@ -92,7 +94,10 @@ namespace HairSalon.Tests
       public void Save_DatabaseAssignsIdToClient_Id()
       {
         //Arrange
-        Client testClient = new Client("jibek", 2);
+        Stylist newStylist = new Stylist("Emma", "cut");
+        newStylist.Save();
+        int stylistId = newStylist.GetId();
+        Client testClient = new Client("jibek", stylistId);
         testClient.Save();
 
         //Act

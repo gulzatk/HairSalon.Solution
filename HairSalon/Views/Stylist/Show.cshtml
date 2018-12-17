@@ -5,32 +5,34 @@ Layout = "_Layout";
 <div class="container">
 <h1>Stylist Details</h1>
     <h3>Name: @Model["stylist"].GetName()</h3>
+    <hr>
 
 <h3>Stylist "@Model["stylist"].GetName()" all specialties:</h3>
 @if (@Model["specialties"].Count == 0)
 {
-<p>No specialties added for this stylist, yet.</p>
-<ul>
-@foreach (var specialty in @Model["specialties"])
-{
-<li>@specialty.GetName()</li>
-}
-</ul>
+  <p>There are no any specialties of this stylist yet.</p>
+} else {
+  <ul>
+  @foreach (var specialty in @Model["specialties"])
+  {
+    <li>@specialty.GetName()</li>
+  }
+  </ul>
 }
 
 <h4>Add a specialty to this stylist from the list: </h4>
-<form action='/stylists/Model["stylist"].GetId()/specialties/new' method='post'>
-<label for='speciltyId'> Select a specialty</label>
-<select id='specialtyId' name='specialtyId' type='text'>
+  <form action='/stylists/@Model["stylist"].GetId()/specialties/new' method='post'>
+  <label for='specialtyId'> Select a specialty</label>
+  <select id='specialtyId' name='specialtyId' type='text'>
   @foreach (var specialty in Model["allSpecialties"])
   {
-  <option value='@specialty.GetId()'>@specialty.GetName()</option>
+    <option value='@specialty.GetId()'>@specialty.GetName()</option>
   }
   </select>
   <button type='submit' class=" btn btn-info">Add</button>
-  </form>
+</form><br>
 
-  <p><a href='/stylists/Model["stylist"].GetId/showclients'>See all @Model["stylist"].GetName()'s clients: </a></p>
-  <p><a href='/stylists'>Stylists list</a></p><br>
+  <p><a href='/stylists/@Model["stylist"].GetId()/showclients'>Click here to see all @Model["stylist"].GetName()'s clients. </a></p>
+  <p><a href='/stylists'>Stylists list</a></p>
   <p><a href='/'>Home Page</a></p>
 </div>

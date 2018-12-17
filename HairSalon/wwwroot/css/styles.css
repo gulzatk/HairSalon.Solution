@@ -14,7 +14,7 @@ p
 {
   font-family: sans-serif;
     color: blue;
-    font-size: 18px;
+    font-size: 12px;
 }
 
 a
@@ -22,7 +22,7 @@ a
   color: #F28B3D;
   font-style: italic;
   text-align: center;
-  font-size: 25px;
+  font-size: 12px;
 }
 
 h1
@@ -33,13 +33,15 @@ h1
 }
 input
 {
+  font-size: 14px
   color: black;
 }
 
-label
+select
 {
   color: black;
 }
+
 
 img
 {

@@ -58,8 +58,7 @@ namespace HairSalon.Models
              {
                  int specialtyId = rdr.GetInt32(0);
                  string specialtyName = rdr.GetString(1);
-                 Specialty newSpecialty = new Specialty(specialtyName);
-                 newSpecialty.SetId(specialtyId);
+                 Specialty newSpecialty = new Specialty(specialtyName, specialtyId);
                  allSpecialties.Add(newSpecialty);
              }
              conn.Close();
@@ -106,7 +105,7 @@ namespace HairSalon.Models
             var cmd = conn.CreateCommand() as MySqlCommand;
             cmd.CommandText = @"INSERT INTO stylist_specialty (stylists_id, specialties_id) VALUES (@StylistId, @SpecialtyId);";
             MySqlParameter category_id = new MySqlParameter();
-            cmd.Parameters.AddWithValue("@SpecialtyId", this. _id);
+            cmd.Parameters.AddWithValue("@SpecialtyId", this._id);
             cmd.Parameters.AddWithValue("@StylistId", newStylist.GetId());
             cmd.ExecuteNonQuery();
             conn.Close();
@@ -151,6 +150,43 @@ namespace HairSalon.Models
               if(conn != null)
               {
                   conn.Dispose();
+              }
+            }
+
+            public static void DeleteSpecialty(int id)
+            {
+              MySqlConnection conn = DB.Connection();
+              conn.Open();
+              var cmd = conn.CreateCommand() as MySqlCommand;
+              cmd.CommandText = @"DELETE FROM specialties WHERE id = (@thisId);";
+
+              MySqlParameter thisId = new MySqlParameter();
+              thisId.ParameterName = "@thisId";
+              thisId.Value = id;
+              cmd.Parameters.Add(thisId);
+              cmd.ExecuteNonQuery();
+              conn.Close();
+              if (conn != null)
+              {
+               conn.Dispose();
+              }
+            }
+
+            public void Edit(string newSpecialtyName)
+            {
+              MySqlConnection conn = DB.Connection();
+              conn.Open();
+              var cmd = conn.CreateCommand() as MySqlCommand;
+              cmd.CommandText = @"UPDATE specialties SET name = @newSpecialtyName WHERE id = @searchId;";
+              cmd.Parameters.AddWithValue("@searchId", _id);
+              cmd.Parameters.AddWithValue("@newSpecialtyName", newSpecialtyName);
+
+              cmd.ExecuteNonQuery();
+              _name = newSpecialtyName;
+              conn.Close();
+              if (conn != null)
+              {
+                conn.Dispose();
               }
             }
 

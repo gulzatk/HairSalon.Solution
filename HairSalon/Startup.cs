@@ -35,7 +35,7 @@ namespace HairSalon
             });
             app.Run(async (context) =>
             {
-                await context.Response.WriteAsync("Stop trying to make fetch happen. Its not going to happen!");
+                await context.Response.WriteAsync("Something went wrong!");
             });
         }
     }

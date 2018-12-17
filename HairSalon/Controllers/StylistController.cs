@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using HairSalon.Models;
+using System;
 
 namespace HairSalon.Controllers
 {
@@ -127,12 +128,15 @@ namespace HairSalon.Controllers
         }
 
         [HttpPost("/stylists/{stylistId}/specialties/new")]
-        public ActionResult AddSpecialty(int stylistId, int speciltyId)
+        public ActionResult AddSpecialty(int stylistId, int specialtyId)
         {
+          // Console.WriteLine("Stylist Id = " + stylistId);
+          // Console.WriteLine("Specialty Id = " + specialtyId);
           Stylist stylist = Stylist.Find(stylistId);
-          Specialty specialty = Specialty.Find(speciltyId);
+          Specialty specialty = Specialty.Find(specialtyId);
+          // Console.WriteLine("Specialty = " + specialty);
           stylist.AddSpecialty(specialty);
-          return RedirectToAction("Show", stylistId);
+          return RedirectToAction("Show", new {id = stylistId});
         }
     }
 }
