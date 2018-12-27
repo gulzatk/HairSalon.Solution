@@ -1,0 +1,18 @@
+@{
+  Layout = "_Layout";
+}
+
+<div class="container">
+
+<h2>Edit client: @Model["client"].GetClientName()</h2>
+
+<form action='/stylists/@Model["stylist"].GetId()/clients/@Model["client"].GetId()/edit' method="post">
+
+  <label for="newName">Name:</label>
+  <input type="text" name="newName" value='@Model["client"].GetClientName()'>
+
+  <button type="submit">Submit</button>
+</form>
+<h3><a href = "/clients">Return to clients List</a></h3>
+
+</div>

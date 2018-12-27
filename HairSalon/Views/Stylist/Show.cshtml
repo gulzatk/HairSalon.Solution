@@ -3,36 +3,38 @@ Layout = "_Layout";
 }
 
 <div class="container">
-<h1>Stylist Details</h1>
-    <h3>Name: @Model["stylist"].GetName()</h3>
-    <hr>
+  <h2>Stylist Details</h2>
+  <p>Name: @Model["stylist"].GetName()</p>
+  <p>Description: @Model["stylist"].GetDescription()</p>
+  <br>
 
-<h3>Stylist "@Model["stylist"].GetName()" all specialties:</h3>
-@if (@Model["specialties"].Count == 0)
-{
-  <p>There are no any specialties of this stylist yet.</p>
-} else {
-  <ul>
-  @foreach (var specialty in @Model["specialties"])
+  <h3>Specialties:</h3>
+  @if (@Model["specialties"].Count == 0)
   {
-    <li>@specialty.GetName()</li>
+    <p>There are no any specialties of this stylist yet.</p>
+  } else {
+    <ul>
+    @foreach (var specialty in @Model["specialties"])
+    {
+      <li>@specialty.GetName()</li>
+    }
+    </ul>
   }
-  </ul>
-}
+  <br>
 
-<h4>Add a specialty to this stylist from the list: </h4>
+  <h4>Add a New Specialty: </h4>
   <form action='/stylists/@Model["stylist"].GetId()/specialties/new' method='post'>
-  <label for='specialtyId'> Select a specialty</label>
-  <select id='specialtyId' name='specialtyId' type='text'>
-  @foreach (var specialty in Model["allSpecialties"])
-  {
-    <option value='@specialty.GetId()'>@specialty.GetName()</option>
-  }
-  </select>
-  <button type='submit' class=" btn btn-info">Add</button>
-</form><br>
+    <label for='specialtyId'> Specialty</label>
+    <select id='specialtyId' name='specialtyId' type='text'>
+    @foreach (var specialty in Model["allSpecialties"])
+    {
+      <option value='@specialty.GetId()'>@specialty.GetName()</option>
+    }
+    </select>
+    <button type='submit' class=" btn btn-info">Add</button>
+  </form>
+  <br>
 
-  <p><a href='/stylists/@Model["stylist"].GetId()/showclients'>Click here to see all @Model["stylist"].GetName()'s clients. </a></p>
-  <p><a href='/stylists'>Stylists list</a></p>
-  <p><a href='/'>Home Page</a></p>
+  <h4><a href='/stylists/@Model["stylist"].GetId()/showclients'>Check the stylist's clients.</a></h4>
+  <h4><a href='/stylists'>Return to Stylists</a></h4>
 </div>

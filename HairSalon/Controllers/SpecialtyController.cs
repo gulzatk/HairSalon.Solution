@@ -59,7 +59,7 @@ namespace HairSalon.Controllers
         Specialty.DeleteSpecialty(id);
 
         model.Add("specialty", specialty);
-        return View(model);
+        return RedirectToAction("Index");
       }
 
       [HttpGet("specialties/{id}/edit")]
@@ -77,5 +77,12 @@ namespace HairSalon.Controllers
          List<Specialty> allSpecialties = Specialty.GetAll();
          return View("Index", allSpecialties);
        }
+
+       [HttpGet("/specialties/delete")]
+       public ActionResult DeleteAll()
+       {
+        Specialty.ClearAll();
+        return View();
+      }
     }
   }

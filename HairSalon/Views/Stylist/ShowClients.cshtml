@@ -5,23 +5,25 @@ Layout = "_Layout";
 <div class="container">
 
 <h3>Here are all the client who comes to see "@Model["stylist"].GetName()":</h3>
-@if (@Model["clients"].Count == 0)
+@if (@Model["client"].Count == 0)
 {
 <p>No one have been added into this stylist client list, yet!</p>
 } else
 {
 
 <ol>
-  @foreach (var client in @Model["clients"])
+  @foreach (var client in @Model["client"])
   {
     <li>@client.GetClientName()
-      <p><a href='/stylists/@Model["stylist"].GetId()/clients/@client.GetId()/delete'>Delete This Client</a></p>
+    <a href='/stylists/@Model["stylist"].GetId()/clients/@client.GetId()/edit'>Edit</a>
+    <a href='/stylists/@Model["stylist"].GetId()/clients/@client.GetId()/delete'>Delete This Client</a>
+
     </li>
   }
 </ol>
 }
 
 <p><a href='/stylists/@Model["stylist"].GetId()/clients/new'>Add a new client</a></p>
+<p><a href='/clients'>Clients list</a></p>
 <p><a href='/stylists'>Stylists list</a></p>
-<p><a href='/'>Home Page</a></p>
 </div>

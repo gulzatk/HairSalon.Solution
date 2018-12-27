@@ -13,10 +13,10 @@ namespace HairSalon.Controllers
       return View(stylist);
      }
 
-     [HttpGet("/stylists/{stylistId}/clients/")]
-     public ActionResult Index(int stylistId)
+     [HttpGet("/clients")]
+     public ActionResult Index()
      {
-       List<Client> allClients = Client.GetAllClients(stylistId);
+       List<Client> allClients = Client.GetAll();
        return View(allClients);
      }
 
@@ -26,12 +26,12 @@ namespace HairSalon.Controllers
        Client client = Client.Find(clientId);
        Dictionary<string, object> model = new Dictionary<string, object>();
        Stylist stylist = Stylist.Find(stylistId);
-       model.Add("clients", client);
+       model.Add("client", client);
        model.Add("stylist", stylist);
        return View(model);
      }
 
-     [HttpPost("/clients/delete")]
+     [HttpGet("/clients/delete")]
      public ActionResult DeleteAll()
      {
        Client.ClearAll();
@@ -49,11 +49,11 @@ namespace HairSalon.Controllers
        return View(model);
      }
 
-     [HttpPost("/stylists/{stylistId}/clients/{clientId}")]
-     public ActionResult Update(int stylistId, int clientId, string name)
+     [HttpPost("/stylists/{stylistId}/clients/{clientId}/edit")]
+     public ActionResult Update(int stylistId, int clientId, string newName)
      {
        Client client = Client.Find(clientId);
-       client.Edit(name);
+       client.Edit(newName);
        Dictionary<string, object> model = new Dictionary<string, object>();
        Stylist stylist = Stylist.Find(stylistId);
        model.Add("stylist", stylist);

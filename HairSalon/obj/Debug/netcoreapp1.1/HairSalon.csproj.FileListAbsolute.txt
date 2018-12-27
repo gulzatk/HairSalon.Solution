@@ -7,3 +7,12 @@ C:\Users\gulza\epicodus\HairSalon.Solution\HairSalon\bin\Debug\netcoreapp1.1\Hai
 C:\Users\gulza\epicodus\HairSalon.Solution\HairSalon\bin\Debug\netcoreapp1.1\HairSalon.pdb
 C:\Users\gulza\epicodus\HairSalon.Solution\HairSalon\obj\Debug\netcoreapp1.1\HairSalon.dll
 C:\Users\gulza\epicodus\HairSalon.Solution\HairSalon\obj\Debug\netcoreapp1.1\HairSalon.pdb
+C:\Users\gulza\epicodus\HairSalon2.Solution\HairSalon\bin\Debug\netcoreapp1.1\HairSalon.deps.json
+C:\Users\gulza\epicodus\HairSalon2.Solution\HairSalon\bin\Debug\netcoreapp1.1\HairSalon.runtimeconfig.json
+C:\Users\gulza\epicodus\HairSalon2.Solution\HairSalon\bin\Debug\netcoreapp1.1\HairSalon.runtimeconfig.dev.json
+C:\Users\gulza\epicodus\HairSalon2.Solution\HairSalon\bin\Debug\netcoreapp1.1\HairSalon.dll
+C:\Users\gulza\epicodus\HairSalon2.Solution\HairSalon\bin\Debug\netcoreapp1.1\HairSalon.pdb
+C:\Users\gulza\epicodus\HairSalon2.Solution\HairSalon\obj\Debug\netcoreapp1.1\HairSalon.csproj.CoreCompileInputs.cache
+C:\Users\gulza\epicodus\HairSalon2.Solution\HairSalon\obj\Debug\netcoreapp1.1\HairSalon.AssemblyInfo.cs
+C:\Users\gulza\epicodus\HairSalon2.Solution\HairSalon\obj\Debug\netcoreapp1.1\HairSalon.dll
+C:\Users\gulza\epicodus\HairSalon2.Solution\HairSalon\obj\Debug\netcoreapp1.1\HairSalon.pdb

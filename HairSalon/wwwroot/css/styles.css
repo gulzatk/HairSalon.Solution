@@ -1,49 +1,10 @@
 .jumbotron
 {
-background: #F28B3D;
-color: #6E370D;
+background: #AAAAAA;
+color: #85144b;
 }
 
 body
 {
-  background-color: #841F1F;
-  color: #F4E3E3;
-}
-
-p
-{
-  font-family: sans-serif;
-    color: blue;
-    font-size: 12px;
-}
-
-a
-{
-  color: #F28B3D;
-  font-style: italic;
-  text-align: center;
-  font-size: 12px;
-}
-
-h1
-{
-  font-size: 20px;
-  font-weight: bold;
-  color: #841F1F;
-}
-input
-{
-  font-size: 14px
-  color: black;
-}
-
-select
-{
-  color: black;
-}
-
-
-img
-{
-border-radius: 50%;
+  background-color: #DDDDDD;
 }

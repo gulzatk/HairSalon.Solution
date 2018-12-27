@@ -6,7 +6,7 @@ Layout = "_Layout";
 <h1>Specialties</h1>
 <h2> @Model["selectedSpecialty"].GetName()</h2>
 
-<hr />
+<hr>
 
 @if (@Model["specialtyStylist"].Count == 0)
 {
@@ -33,4 +33,3 @@ Layout = "_Layout";
   <button type='submit' class='btn btn-info'>Add</button>
 </form><br>
 <p><a href='/stylists/new'>Add a new stylist</a></p>
-<p><a href="/">Return to Main Page</a></p>

@@ -5,9 +5,10 @@
 <div class="container text-center">
   <h1>Client: </h1>
 
-  <h2>@Model["clients"].GetClientName()</h2>
+  <h2> @Model["client"].GetClientName()</h2>
   <h3>Stylist: @Model["stylist"].GetName()</h3>
 
+  <a href='/stylists/@Model["stylist"].GetId()/clients/@Model["client"].GetId()/edit'>Edit</a>
   <a href='/stylists/@Model["stylist"].GetId()/clients/new'>Add another client</a><br>
   <a href='/stylists'>View all stylists</a>
   </div>

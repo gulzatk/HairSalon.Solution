@@ -3,23 +3,22 @@
 }
 
 <div class="container text-center">
-
-  <h1>List of Stylists in our HairSalon:</h1>
-
+  <h2>Stylists of our Hair Salon:</h2>
   @if (@Model.Count == 0)
   {
     <h3>No stylists exist!</h3>
   }
-<ul>
+  <ul>
   @foreach (var stylist in Model)
   {
-    <h3><a href='/stylists/@stylist.GetId()'>@stylist.GetName()</a></h3>
+    <h4><a href='/stylists/@stylist.GetId()'>@stylist.GetName()</a></h4>
     <button class="btn btn-danger"><a href='/stylists/@stylist.GetId()/delete'>Delete</a></button>
     <button class="btn btn-info"><a href='/stylists/@stylist.GetId()/edit'>Edit</a></button>
     <br>
+    <br>
   }
   </ul>
-  <br>
-  <p><a href='/stylists/new'>Add a new stylist</a></p><br>
-  <p><a href='/'>Home Page</a></p>
+  <h4><a href='/stylists/new'>Add a new stylist</a></h4>
+  <h4><a href='/stylists/delete'>Delete all stylists</a></h4>
+  <h4><a href='/'>Home Page</a></h4>
 </div>

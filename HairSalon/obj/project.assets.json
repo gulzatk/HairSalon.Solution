@@ -9763,11 +9763,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\gulza\\epicodus\\HairSalon.Solution\\HairSalon\\HairSalon.csproj",
+      "projectUniqueName": "C:\\Users\\gulza\\epicodus\\HairSalon2.Solution\\HairSalon\\HairSalon.csproj",
       "projectName": "HairSalon",
-      "projectPath": "C:\\Users\\gulza\\epicodus\\HairSalon.Solution\\HairSalon\\HairSalon.csproj",
+      "projectPath": "C:\\Users\\gulza\\epicodus\\HairSalon2.Solution\\HairSalon\\HairSalon.csproj",
       "packagesPath": "C:\\Users\\gulza\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\gulza\\epicodus\\HairSalon.Solution\\HairSalon\\obj\\",
+      "outputPath": "C:\\Users\\gulza\\epicodus\\HairSalon2.Solution\\HairSalon\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\gulza\\AppData\\Roaming\\NuGet\\NuGet.Config"

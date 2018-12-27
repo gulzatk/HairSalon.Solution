@@ -4,16 +4,16 @@
 
 <div class="container text-center">
 
-  <h1>List of clients:</h1>
+  <h3>List of clients:</h3>
   @if (@Model.Count == 0)
   {
-    <h3>No one has been added into this stylist yet!</h3>
+    <h3>No clients exist!</h3>
   } else {
   @foreach (var client in Model)
   {
-    <h3><a href='/stylists/@stylist.GetId()/clients/@client.GetId()'>@client.GetClientName() </a> </h3>
+  <h3><a href='/stylists/@client.GetStylistId()/clients/@client.GetId()'>@client.GetClientName()</a></h3>
   }
   }
-
-  <p><a href='/'>Home Page</a></p>
+  <br>
+  <a href="/clients/delete">Delete all clients</a><br>
 </div>

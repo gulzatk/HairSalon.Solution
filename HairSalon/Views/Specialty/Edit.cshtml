@@ -2,16 +2,16 @@
   Layout = "_Layout";
 }
 
-<h2 class="text-center">Edit Specialty</h2>
 <div class="container">
+  <h2>Edit Specialty</h2>
+  <form action="/specialties/@Model.GetId()/edit" method="post">
+    <label for="name"> Name: </label>
+    <input type="text" name="name" value='@Model.GetName()'>
+    <br>
+    <br>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  <br>
 
-
-    <form action="/specialties/@Model.GetId()/edit" method="post">
-        <label for="name"> Name: </label>
-        <input type="text" name="name"><br>
-
-        <button type="submit" class="btn btn-primary">Edit</button>
-    </form>
-<h3><a href = "/specialties">Return to stylists List</a></h3>
-
+  <h4><a href = "/specialties">Return to Specialties</a></h4>
 </div>
